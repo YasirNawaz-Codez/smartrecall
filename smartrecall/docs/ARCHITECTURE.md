@@ -4,6 +4,8 @@ CSCI 4397 / CSCI 6397: Software Engineering and AI
 University of Central Arkansas, Fall 2026
 Team: Yasir Nawaz, Moustapha Fofana, Alex Du
 
+This document expands on the Specifications section of our project proposal, answering the questions raised in the professor's clarification email of Sep 16, 2026.
+
 ## 1. High-Level Diagram
 
 ```mermaid
