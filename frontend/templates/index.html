@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartRecall</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 16px; background: #f7f7f9; color: #222; }
+    h1 { margin-bottom: 4px; }
+    p { color: #555; }
+    label { display: block; font-weight: bold; margin: 16px 0 8px; }
+    textarea { width: 100%; height: 250px; padding: 10px; font-size: 15px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 6px; }
+    button { margin-top: 12px; padding: 10px 24px; font-size: 16px; color: #fff; background: #3b5bdb; border: none; border-radius: 6px; cursor: pointer; }
+    button:hover { background: #2f4ac0; }
+  </style>
+</head>
+<body>
+  <h1>SmartRecall</h1>
+  <p>Paste your notes below and we'll turn them into flashcards.</p>
+
+  <form action="/generate" method="post">
+    <label for="text">Your notes</label>
+    <textarea id="text" name="text" maxlength="10000" required></textarea>
+    <button type="submit">Generate</button>
+  </form>
+</body>
+</html>
