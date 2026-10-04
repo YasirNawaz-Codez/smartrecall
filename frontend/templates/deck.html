@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ deck.name }} - SmartRecall</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 16px; background: #f7f7f9; color: #222; }
+    .count { color: #555; margin-top: -8px; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+    .question { font-weight: bold; margin: 0 0 8px; }
+    .answer { margin: 0; color: #333; white-space: pre-wrap; }
+    .empty { padding: 20px; background: #fff3cd; border-radius: 8px; }
+    a { color: #3b5bdb; }
+  </style>
+</head>
+<body>
+  <h1>{{ deck.name }}</h1>
+  <p class="count">{{ cards|length }} card{% if cards|length != 1 %}s{% endif %}</p>
+
+  {% for card in cards %}
+    <div class="card">
+      <p class="question">Q: {{ card.question }}</p>
+      <p class="answer">A: {{ card.answer }}</p>
+    </div>
+  {% else %}
+    <p class="empty">This deck has no cards yet.</p>
+  {% endfor %}
+
+  <p><a href="/">&larr; Back to home</a></p>
+</body>
+</html>
