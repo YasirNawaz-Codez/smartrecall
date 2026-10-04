@@ -12,22 +12,40 @@ load_dotenv()
 _PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _TEMPLATE_FOLDER = _PROJECT_ROOT / "frontend" / "templates"
 _STATIC_FOLDER = _PROJECT_ROOT / "frontend" / "static"
+<<<<<<< Updated upstream
 _DB_PATH = _PROJECT_ROOT / "database" / "smartrecall.db"
+=======
+_DEFAULT_DB_PATH = _PROJECT_ROOT / "database" / "smartrecall.db"
+>>>>>>> Stashed changes
 _SCHEMA_PATH = _PROJECT_ROOT / "database" / "schema.sql"
 
 
 def init_db() -> None:
     """Create the database tables if they don't already exist.
 
+<<<<<<< Updated upstream
+=======
+    The database path comes from the DATABASE_PATH environment variable
+    if set (used by tests), otherwise database/smartrecall.db — same
+    pattern as backend/models/deck.py and card.py.
+
+>>>>>>> Stashed changes
     Safe to call every time the app starts. Checks for the 'decks'
     table first so it never re-runs CREATE TABLE against a database
     that's already set up (which would crash, since schema.sql doesn't
     use IF NOT EXISTS). On a fresh clone with no database file yet,
     this creates it from schema.sql automatically.
     """
+<<<<<<< Updated upstream
     _DB_PATH.parent.mkdir(parents=True, exist_ok=True)
 
     conn = sqlite3.connect(_DB_PATH)
+=======
+    db_path = Path(os.environ.get("DATABASE_PATH", str(_DEFAULT_DB_PATH)))
+    db_path.parent.mkdir(parents=True, exist_ok=True)
+
+    conn = sqlite3.connect(db_path)
+>>>>>>> Stashed changes
     try:
         existing_tables = conn.execute(
             "SELECT name FROM sqlite_master WHERE type='table' AND name='decks'"
@@ -57,7 +75,6 @@ def create_app() -> Flask:
     return app
 
 
-app = create_app()
-
 if __name__ == "__main__":
+    app = create_app()
     app.run(debug=True)
